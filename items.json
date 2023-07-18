@@ -6,19 +6,19 @@
         "imgpath":"./images/photo-1550258987-190a2d41a8ba.jpg"
       },
       {
-        "name": "Pineapple",
-        "price": 10.99,
-        "imgpath":"./images/photo-1550258987-190a2d41a8ba.jpg"
+        "name": "Other fruit",
+        "price": 7.99,
+        "imgpath":"./images/t.jpg"
       },
       {
-        "name": "Pineapple",
-        "price": 10.99,
-        "imgpath":"./images/photo-1550258987-190a2d41a8ba.jpg"
+        "name": "watermelon",
+        "price": 15.99,
+        "imgpath":"./images/watermelon.jpg"
       },
       {
-        "name": "Pineapple",
-        "price": 10.99,
-        "imgpath":"./images/photo-1550258987-190a2d41a8ba.jpg"
+        "name": "less fruit",
+        "price": 20.99,
+        "imgpath":"./images/fruit.jpg"
       }
     ]
   }
