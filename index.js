@@ -8,15 +8,12 @@ function getImageNameFromUrl(imageUrl) {
 document.addEventListener("DOMContentLoaded", function() {
   const itemsURL = '../items.json';
   const imageList = document.querySelector('.imageList');
+  let items = [];
 
   fetchItems()
-    .then(items => {
-      items.forEach(item => {
-        const imageUrl = item.imgpath;
-        const itemName = item.name;
-        const itemPrice = item.price;
-        createItem(imageUrl, itemName, itemPrice);
-      });
+    .then(data => {
+      items = data;
+      updateItemList(items);
     })
     .catch(error => console.log(error));
 
@@ -45,4 +42,40 @@ document.addEventListener("DOMContentLoaded", function() {
     column.appendChild(itemPriceElement);
     imageList.appendChild(column);
   }
+
+  function updateItemList(items) {
+    imageList.innerHTML = '';
+    items.forEach(item => {
+      const imageUrl = item.imgpath;
+      const itemName = item.name;
+      const itemPrice = item.price;
+      createItem(imageUrl, itemName, itemPrice);
+    });
+  }
+
+  const sortByDropdown = document.getElementById('sortByDropdown');
+
+  const sortByPriceDescButton = document.getElementById('sortByPriceDesc');
+  const sortByPriceAscButton = document.getElementById('sortByPriceAsc');
+  const sortByNameAscButton = document.getElementById('sortByNameAsc');
+
+  sortByPriceDescButton.addEventListener('click', function() {
+    items.sort((a, b) => b.price - a.price);
+    updateItemList(items);
+    sortByDropdown.textContent = this.textContent; // Update the "Sort By" button text
+  });
+
+  sortByPriceAscButton.addEventListener('click', function() {
+    items.sort((a, b) => a.price - b.price);
+    updateItemList(items);
+    sortByDropdown.textContent = this.textContent; // Update the "Sort By" button text
+  });
+
+  sortByNameAscButton.addEventListener('click', function() {
+    // Implement sorting by name (A to Z) logic here
+    updateItemList(items);
+    sortByDropdown.textContent = this.textContent; // Update the "Sort By" button text
+  });
+
+  // Add event listeners for other dropdown items if needed
 });
