@@ -1,30 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="./bulma.css" />
+    <link rel="stylesheet" href="./signin.css" />
+    <script
+      src="https://accounts.google.com/gsi/client"
+      async
+      defer
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In</title>
-  <link rel="stylesheet" href="bulma.css">
-  <link rel="stylesheet" href="signin.css">
-</head>
-
-<body>
-  <main>
-    <section>
-      <form id="card-form">
+  <body>
+    <main>
+      <section>
+        <form id="card-form">
           <label class="label" for="email-input">Email</label>
-          <input class="input" type="email" id="email-input" placeholder="something@email.com" required>
+          <input
+            class="input"
+            type="email"
+            id="email-input"
+            placeholder="something@email.com"
+            required
+          />
 
           <label class="label" for="email-input">Password</label>
-          <input class="input" type="password" id="password-input" placeholder="Password" required>
+          <input
+            class="input"
+            type="password"
+            id="password-input"
+            placeholder="Password"
+            required
+          />
 
+          <div class="googleBtn">
 
-        <input type="submit" class="button is-fullwidth">
-      </form>
-    </section>
-  </main>
-</body>
+            <div
+              id="g_id_onload"
+              data-client_id="1018172999449-s0phn6172b3ejmbh4oqdt9sf8v1c00k1.apps.googleusercontent.com"
+              data-context="signin"
+              data-ux_mode="popup"
+              data-login_uri="http://localhost:5500"
+              data-auto_prompt="false"
+            ></div>
 
+            <div
+              class="g_id_signin"
+              data-type="standard"
+              data-shape="rectangular"
+              data-theme="filled_blue"
+              data-text="signup_with"
+              data-size="large"
+              data-logo_alignment="left"
+            ></div>
+          </div>
+
+          <input
+            type="submit"
+            class="button is-fullwidth"
+            value="Sign Up with Facebook"
+          />
+          <input
+            type="submit"
+            class="button is-fullwidth"
+            value="Sign Up with Apple"
+          />
+          <input type="submit" class="button is-fullwidth" value="Sign Up" />
+        </form>
+      </section>
+    </main>
+  </body>
 </html>
