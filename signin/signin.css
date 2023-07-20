@@ -68,6 +68,11 @@ input:invalid, input:focus:invalid{
 
 .googleBtn{
   margin-bottom: 20px;
+  
+}
+
+.fb-login-button{
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 900px) {
