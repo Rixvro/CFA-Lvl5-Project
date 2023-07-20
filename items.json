@@ -19,6 +19,11 @@
         "name": "less fruit",
         "price": 20.99,
         "imgpath":"./images/fruit.jpg"
+      },
+      {
+        "name":"Fruit3",
+        "price": 21.65,
+        "imgpath":"./images/other fruit.jpg"
       }
     ]
   }

@@ -1,0 +1,16 @@
+.navbtn{
+    font-size: 23px;
+    margin-right: 25px;
+}
+
+nav{
+    background-color: #F5EFE7;
+    color: #F5EFE7;
+}
+
+.nav-link{
+    color: black;
+    font-weight: 500;
+    margin: 30px 65px 20px 65px;
+    font-size: 17px;
+}
