@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -8,10 +9,10 @@ body {
   min-height: 100%;
   overflow: auto;
   text-align: center;
-  background-color: #F5EFE7;
+  background-color: #f5efe7;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 main {
@@ -32,7 +33,7 @@ form,
 }
 
 #card-form {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   max-width: 420px;
   text-align: center;
   padding: 40px;
@@ -49,29 +50,39 @@ input {
 }
 
 input[type="submit"] {
-  background-color: #4F709C;
+  background-color: #4f709c;
   cursor: pointer;
   color: white !important;
   line-height: 1em;
   font-weight: bold;
 }
 
-input:valid, input:focus:valid{
+input:valid,
+input:focus:valid {
   color: green;
   border-color: green;
 }
 
-input:invalid, input:focus:invalid{
+input:invalid,
+input:focus:invalid {
   color: red;
   border-color: red;
 }
 
-.googleBtn{
-  margin-bottom: 20px;
-  
+input[type=email], input[type=password] {
+  border: 1px solid #ccc;
 }
 
-.fb-login-button{
+.googleBtn {
+  margin-bottom: 20px;
+}
+
+.signin-button {
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.fb-login-button {
   margin-bottom: 20px;
 }
 
@@ -81,5 +92,4 @@ input:invalid, input:focus:invalid{
     vertical-align: top;
     width: 48%;
   }
-
 }

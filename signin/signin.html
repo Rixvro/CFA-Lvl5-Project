@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In</title>
-    <link rel="stylesheet" href="./bulma.css" />
+
+    <!-- Stylesheets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./signin.css" />
 
     <!-- Google + Facebook signup scripts -->
@@ -14,8 +17,18 @@
       async
       defer
     ></script>
+
     <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="e5iSOnHn"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="kq2jrIJK"></script>
+
+  <meta name="appleid-signin-client-id" content="[CLIENT_ID]">
+  <meta name="appleid-signin-scope" content="[SCOPES]">
+  <meta name="appleid-signin-redirect-uri" content="[REDIRECT_URI]">
+  <meta name="appleid-signin-state" content="[STATE]">
+
+  <!-- Sign up script -->
+  <script src="./signin.js"></script>
+
   </head>
 
   <body>
@@ -62,14 +75,8 @@
             ></div>
           </div>
 
-          <div class="fb-login-button" data-width="400" data-size="large" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>
-
-          <input
-            type="submit"
-            class="button is-fullwidth"
-            value="Sign Up with Apple"
-          />
-          <input type="submit" class="button is-fullwidth" value="Sign Up" />
+          <input type="submit" class="button is-fullwidth" value="Sign Up"/>
+          
         </form>
       </section>
     </main>
