@@ -1,0 +1,16 @@
+body {
+  background-color: #F5EFE7;
+  margin: 10px;
+}
+
+h1 {
+  padding-left: 6%;
+}
+
+.flex {
+  display: flex;
+}
+
+hr {
+  margin: auto;
+}
