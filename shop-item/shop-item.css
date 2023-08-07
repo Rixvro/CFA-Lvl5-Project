@@ -1,16 +1,64 @@
 body {
   background-color: #F5EFE7;
   margin: 10px;
+  font-family: Arial, sans-serif;
 }
 
-h1 {
-  padding-left: 6%;
+.productImg {
+  width: 450px;
+ 
+  height: 492px;
+  background-color: black;
+  margin-top: 40px;
 }
 
 .flex {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: -460px; /* Adjust as needed */
+  margin-left: 480px;
 }
 
-hr {
-  margin: auto;
+#Title {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#Price {
+  font-size: xx-large;
+  margin-bottom: 10px;
+}
+
+#Desc {
+  font-size: large;
+  width: 770px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#Website {
+  font-size: xx-large;
+  margin-bottom: 10px;
+}
+
+#WebsiteButton {
+  background-color: #D7C0AE;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  
+}
+
+#WebsiteButton:hover {
+  background-color: #C7A89E;
 }

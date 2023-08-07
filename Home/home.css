@@ -2,7 +2,7 @@
 
 /* Navbar Styles */
 .navbar {
-    background-color: #000000;
+    background-color: #F5EFE7;
   }
   
   .square-button {
@@ -27,9 +27,7 @@
   }
   
   /* Increase spacing between navbar items */
-  .navbar-nav .nav-link {
-    margin-right: 20px;
-  }
+ 
   
   /* List of Images */
   .image-list-scroll {
@@ -42,4 +40,3 @@
     height: 200px; /* Adjust the height as needed */
     background-color: #000000;
   }
-  
