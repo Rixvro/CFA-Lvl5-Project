@@ -14,3 +14,57 @@ nav{
     margin: 30px 65px 20px 65px;
     font-size: 17px;
 }
+
+a {
+    color: inherit;
+}
+
+#expanded-search{
+    position: relative;
+    width: 90%;
+    /* margin: 50px auto; */
+    text-align: center;
+    font-size: x-large;
+    overflow: hidden;
+  }
+
+  #search-button{
+    /* width: 70px; */
+    color:white;
+    /* background-color: #d35400; */
+    /* padding: 15px; */
+    float: right;
+    /* height: 70px; */
+    /* text-align:center; */
+    /* border-radius: 4px; */
+  }
+
+  #search-button:hover{
+    cursor: pointer;
+    /* background-color: #e67e22; */
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+
+  #search-input{
+    visibility: hidden;
+    padding: 0 10px;
+    color: #7f8c8d;
+    /* height: 40px; */
+    position: absolute;
+    top: 6px;;
+    display: block;
+    right: 70px;
+    width: 0px;
+    overflow: hidden;
+    -webkit-transition: all 0.25s linear; /* Safari */
+    transition: all 0.25s linear;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border: none;
+  }
+
+  #search-button:hover #search-input{
+    width: 300px !important;
+    visibility: visible;
+  }
