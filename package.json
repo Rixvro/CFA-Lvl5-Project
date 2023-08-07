@@ -1,7 +1,27 @@
 {
+  "name": "cfa-lvl5-project",
+  "version": "1.0.0",
+  "description": "Ethical clothing source project",
+  "main": "signup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rixvro/CFA-Lvl5-Project.git"
+  },
+  "author": "Jian, Nikolai, Michelle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rixvro/CFA-Lvl5-Project/issues"
+  },
+  "homepage": "https://github.com/Rixvro/CFA-Lvl5-Project#readme",
   "dependencies": {
     "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.12",
-    "express": "^4.18.2"
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongodb": "^5.7.0"
   }
 }
