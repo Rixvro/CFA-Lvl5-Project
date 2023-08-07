@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
   const photosFolder = './images';
   const imageList = document.querySelector('.imageList');
@@ -13,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function() {
     .catch(error => console.log(error));
 
   async function fetchPhotos() {
-    
+
     const response = await fetch(photosFolder);
     console.log(response)
     const html = await response.text();
-    
+
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
     const photoLinks = Array.from(doc.querySelectorAll('a'))
