@@ -1,0 +1,78 @@
+@import "../keyframes.css";
+body {
+  background-color: #F5EFE7;
+  margin: 10px;
+}
+
+h1 {
+  padding-left: 6%;
+}
+
+.flex {
+  display: flex;
+}
+
+hr {
+  margin: auto;
+}
+#info{
+  margin-top: 60px;
+  margin-left: 540px;
+}
+.productImg{
+  width: 450px;
+  height: 492px;
+  background-color: black;
+  margin-top: 40px;
+  margin-left: 60px;
+}
+
+#Title{
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 540px;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+#Price{
+  position: absolute;
+  margin-top: calc(60px*2);
+  margin-left: 540px;
+  font-size: xx-large;
+  
+}
+#Desc{
+  position: absolute;
+  margin-top: calc(60px*3);
+  margin-left: 540px;
+  font-size: large;
+  
+}
+#Website{
+  position: absolute;
+  margin-top: calc(60px*4);
+  margin-left: 540px;
+  font-size: xx-large;
+  
+}
+#WebsiteButton {
+  position: absolute;
+  margin-top: calc(60px*6);
+  margin-left: 540px;
+  background-color: #D7C0AE;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: black; 
+  font-size: 16px;
+  cursor: pointer;
+  outline: none; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  font-weight: bold;
+}
+
+
+#WebsiteButton:hover {
+  background-color: #C7A89E; 
+}
