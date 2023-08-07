@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git", 
+    "type": "git",
     "url": "git+https://github.com/Rixvro/CFA-Lvl5-Project.git"
   },
   "author": "Jian, Nikolai, Michelle",
@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Rixvro/CFA-Lvl5-Project#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongodb": "^5.7.0"
   }

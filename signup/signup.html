@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In</title>
+    <title>Sign Up</title>
 
     <!-- Stylesheets -->
 
@@ -13,80 +13,98 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <link rel="stylesheet" href="./signup.css" />
-
-    <!-- Google Sign up script -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-    <!-- Sign up script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const DOMAIN_NAME = "http://localhost:5500";
-        const form = document.getElementById("card-form");
-        form.addEventListener("submit", (event) => {
-          event.preventDefault();
-
-          const formData = new FormData(form);
-          fetch(DOMAIN_NAME + "/signup",
-            {
-              method: "POST",
-              headers: {
-                'Accept': "application/json",
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(Object.fromEntries(formData))
-            })
-            .then(data => console.log(data))
-            .catch(error => console.error(error));
-        });
-      });
-    </script>
   </head>
 
   <body>
     <main>
       <section class="form">
-        <form id="card-form" action="/signup" method="POST">
+        <form id="card-form">
+          <div id="errorMessage"></div>
           <label class="label" for="email-input">Email</label>
           <input
             class="input"
             type="email"
             id="email-input"
-            placeholder="something@email.com"
+            name="email"
+            placeholder="something@example.com"
             required
           />
 
-          <label class="label" for="email-input">Password</label>
+          <label class="label" for="password-input">Password</label>
           <input
             class="input"
             type="password"
             id="password-input"
+            name="password"
             placeholder="Password"
             required
           />
-          
-          <input type="submit" class="button is-fullwidth" value="Sign Up" />
-        </form>
-        <div class="googleBtn">
-          <div
-            id="g_id_onload"
-            data-client_id="1018172999449-s0phn6172b3ejmbh4oqdt9sf8v1c00k1.apps.googleusercontent.com"
-            data-context="signin"
-            data-ux_mode="popup"
-            data-login_uri="http://localhost:5500"
-            data-auto_prompt="false"
-          ></div>
 
-          <div
-            class="g_id_signin"
-            data-type="standard"
-            data-shape="rectangular"
-            data-theme="filled_blue"
-            data-text="signup_with"
-            data-size="large"
-            data-logo_alignment="left"
-          ></div>
-        </div>
+          <label class="label" for="password-input">Retype Password</label>
+          <input
+            class="input"
+            type="password"
+            id="passwordCheck"
+            name="passwordCheck"
+            placeholder="Retype Password"
+            required
+          />
+
+          <input
+            id="signUpBtn"
+            type="submit"
+            class="button is-fullwidth"
+            value="Sign Up"
+          />
+        </form>
       </section>
     </main>
+
+    <!-- Sign up script -->
+    <script>
+      const DOMAIN_NAME = "http://localhost:5500";
+      const form = document.getElementById("card-form");
+      const submitBtn = document.querySelector("input[id=signUpBtn]");
+      const errorMessage = document.querySelector('#errorMessage');
+      const passwordCheck = document.querySelector('#passwordCheck');
+      const p = document.createElement('p');
+      let formData;
+      
+      document.addEventListener("DOMContentLoaded", function () {
+
+        form.addEventListener("submit", async (event) => {
+          formData = new FormData(form);
+          event.preventDefault();
+
+          console.log(formData.get("email"));
+          console.log(formData.get("password"));
+
+          if (formData.get('password') !== passwordCheck.value){
+            errorMessage.appendChild(p);
+            p.textContent = 'Passwords do not match!';
+            return;
+          } else{
+            p.textContent = '';
+            formData.delete('passwordCheck');
+          }
+
+            await fetch(DOMAIN_NAME + "/signup", {
+              method: "PUT",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(Object.fromEntries(formData)),
+            })
+              .then((res) => res.json())
+              .then((data) => console.log(data))
+              // Should probably redirect to a signup page
+              .then(window.location.href = '../Home/home.html')
+              .catch((error) => console.error(error));
+        });
+      });
+
+
+    </script>
   </body>
 </html>
