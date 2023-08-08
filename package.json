@@ -2,7 +2,7 @@
   "name": "cfa-lvl5-project",
   "version": "1.0.0",
   "description": "Ethical clothing source project",
-  "main": "signup.js",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
