@@ -36,17 +36,17 @@ async function getLink(url) {
     // let html = $('#product-grid .grid__item .card-information__text a') // different for all websites svalva https://svala.co
     // let html = $('#product-grid .grid__item-plp .card__headng a') // different for all websites lucy and yak https://lucyandyak.com
     // let html = $('.product-grid .product .pdp-link a') https://www.patagonia.com
+// .search-results .results-grid .product-cell
 
-
-    let html = $('.product-tile .tile-body .pdp-link a')
+    let html = $('')
     // console.log(html)
     let links = []
     html.each((index, value) => {
       // if (!links.includes('https://kuyichi.com/' + $(value).attr("href")))
-      links.push('https://www.theory.com' + $(value).attr("href")) // doesnt have meta tagsssfjeijeiejfei
+      links.push('https://www.everlane.com' + $(value).attr("href"))
     // }
     })
-    // console.log(links)
+    console.log(links)
      return links
   }
   catch (err) {
@@ -56,6 +56,8 @@ async function getLink(url) {
 // getLink("https://www.theory.com/mens-view-all/")
 // getLink("https://svala.co/collections/shop")
 // getLink("https://lucyandyak.com/en-us/collections/shop-everything")
+// getLink("https://www.everlane.com/collections/mens-bestsellersv2")
+
 
 async function getData(url) {
   try {
@@ -125,18 +127,11 @@ async function getData2(url) {
 }
 
 
-getData2("https://www.theory.com/mens-view-all/")
-
-// getData("https://wearpact.com/men/apparel")
+// getData2("https://www.theory.com/mens-view-all/")
 
 
 // getData("https://lucyandyak.com/en-us/collections/shop-everything")
 // https://lucyandyak.com/en-us/collections/shop-everything
-// FS.writeFile ("scrape.json", JSON.stringify(info), function(err) {
-//   if (err) throw err;
-//   console.log('complete');
-//   }
-// );
 
 app.listen(3000, () => {
   console.log('Example app listening at http://localhost:3000')
