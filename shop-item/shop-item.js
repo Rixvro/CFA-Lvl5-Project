@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     websiteUrl=new URL(websiteParam); websiteName = websiteUrl.hostname;;
   }else{websiteUrl="#" ;websiteName="null"}
   
-  productWebsiteNameElement.textContent=websiteName
+  productWebsiteNameElement.textContent="Website Name: "+websiteName
   productNameElement.textContent=itemName;  
   productImgElement.src = itemImage;
   DescElement.textContent=Desc

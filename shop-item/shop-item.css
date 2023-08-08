@@ -11,7 +11,9 @@ body {
   background-color: black;
   margin-top: 40px;
 }
-
+#flex1 {
+margin-left: 30px;
+}
 .flex {
   display: flex;
   flex-direction: column;
@@ -19,6 +21,7 @@ body {
   margin-top: -460px; /* Adjust as needed */
   margin-left: 480px;
 }
+
 
 #Title {
   font-size: xx-large;
@@ -34,12 +37,27 @@ body {
 #Desc {
   font-size: large;
   width: 770px;
+  height: 200px;
   margin-bottom: 20px;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal;
+  overflow:auto;
   text-overflow: ellipsis;
+  text-size-adjust: auto;
+  scroll-behavior: smooth;
+}
+/* Style the scrollbar */
+#Desc::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
 }
 
+#Desc::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the thumb */
+  border-radius: 10px; /* Rounded corners */
+}
+
+#Desc::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the track */
+}
 #Website {
   font-size: xx-large;
   margin-bottom: 10px;
