@@ -1,0 +1,8 @@
+@keyframes fadeColor {
+    0% {
+      background-color: #D7C0AE;
+    }
+    100% {
+      background-color: #C7A89E;
+    }
+  }
