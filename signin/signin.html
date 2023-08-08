@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up</title>
+    <title>Sign In</title>
 
     <!-- Stylesheets -->
 
@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="./signup.css" />
+    <link rel="stylesheet" href="./signin.css" />
   </head>
 
   <body>
@@ -40,33 +40,22 @@
             required
           />
 
-          <label class="label" for="password-input">Retype Password</label>
           <input
-            class="input"
-            type="password"
-            id="passwordCheck"
-            name="passwordCheck"
-            placeholder="Retype Password"
-            required
-          />
-
-          <input
-            id="signUpBtn"
+            id="signinBtn"
             type="submit"
             class="button is-fullwidth"
-            value="Sign Up"
+            value="Sign In"
           />
         </form>
       </section>
     </main>
 
-    <!-- Sign up script -->
+    <!-- Sign in script -->
     <script>
       const DOMAIN_NAME = "http://localhost:3000";
       const form = document.getElementById("card-form");
-      const submitBtn = document.querySelector("input[id=signUpBtn]");
+      const submitBtn = document.querySelector("input[id=signinBtn]");
       const errorMessage = document.querySelector('#errorMessage');
-      const passwordCheck = document.querySelector('#passwordCheck');
       const p = document.createElement('p');
       let formData;
       
@@ -79,16 +68,7 @@
           console.log(formData.get("email"));
           console.log(formData.get("password"));
 
-          if (formData.get('password') !== passwordCheck.value){
-            errorMessage.appendChild(p);
-            p.textContent = 'Passwords do not match!';
-            return;
-          } else{
-            p.textContent = '';
-            formData.delete('passwordCheck');
-          }
-
-            await fetch(DOMAIN_NAME + "/signup", {
+          await fetch(DOMAIN_NAME + "/signin", {
               method: "PUT",
               headers: {
                 Accept: "application/json",
@@ -97,21 +77,18 @@
               body: JSON.stringify(Object.fromEntries(formData)),
             })
               .then((res) => {
-                if(res.status === 412){
-                  errorMessage.appendChild(p);
-                  p.textContent = "Account already exists!"
-                  return;
-                }
-                else if (!res.ok){
-                  errorMessage.appendChild(p);
-                  p.textContent = "Encountered problem, please try again"
-                  return;
+                if (!res.ok) {
+                    errorMessage.appendChild(p);
+                    p.textContent = "Incorrect Login Information!";
+                    return;
                 }
                 p.textContent = '';
-                window.location.href = '../signin/signin.html'
+                window.location.href = "../Home/home.html";
                 res.json();
-              })
-              .then((data) => console.log(data))
+            })
+            .then((data) => {
+                console.log("Logged in: " + data);
+            })
               .catch((error) => console.error(error));
         });
       });
