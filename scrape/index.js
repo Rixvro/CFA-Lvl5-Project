@@ -1,5 +1,13 @@
 const express = require("express");
 const app = express();
+const FS = require('fs');
+
+app.get('/', function (req, res) { // runs http://localhost:3000/
+  res.sendFile(__dirname + '/index.html'); // change the path to your index.html
+});
+
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 /*
     website: ,
@@ -20,30 +28,34 @@ const app = express();
   }
 */
 
-
-app.get('/', function (req, res) { // runs http://localhost:3000/
-  res.sendFile(__dirname + '/index.html'); // change the path to your index.html
-});
-
-const axios = require("axios");
-const cheerio = require("cheerio");
-
 async function getLink(url) {
   try {
     const { data } = await axios.get(url);
     const $ = cheerio.load(data);
+    // console.log($)
+    // let html = $('#product-grid .grid__item .card-information__text a') // different for all websites svalva https://svala.co
+    // let html = $('#product-grid .grid__item-plp .card__headng a') // different for all websites lucy and yak https://lucyandyak.com
+    // let html = $('.product-grid .product .pdp-link a') https://www.patagonia.com
 
-    let html = $('#product-grid .grid__item .card-information__text a') // different for all websites
+
+    let html = $('.product-tile .tile-body .pdp-link a')
+    // console.log(html)
     let links = []
     html.each((index, value) => {
-      links.push('https://svala.co' + $(value).attr("href")) // diff
+      // if (!links.includes('https://kuyichi.com/' + $(value).attr("href")))
+      links.push('https://www.theory.com' + $(value).attr("href")) // doesnt have meta tagsssfjeijeiejfei
+    // }
     })
+    // console.log(links)
      return links
   }
   catch (err) {
     console.log(err);
   }
 }
+// getLink("https://www.theory.com/mens-view-all/")
+// getLink("https://svala.co/collections/shop")
+// getLink("https://lucyandyak.com/en-us/collections/shop-everything")
 
 async function getData(url) {
   try {
@@ -65,7 +77,12 @@ async function getData(url) {
       } catch (e) {
         console.log(e);
       }
-      console.log(info)
+      // console.log(info)
+      FS.writeFile ("scrape2.json", JSON.stringify(info), function(err) {
+        if (err) throw err;
+        // console.log('complete');
+        }
+      );
       return info
     })
   } catch (e) {
@@ -73,7 +90,53 @@ async function getData(url) {
   }
 }
 
-getData("https://svala.co/collections/shop")
+async function getData2(url) {
+  try {
+    let linksArray = await getLink(url)
+    let info = []
+    linksArray.forEach(async link => {
+      try {
+        const { data } = await axios.get(link);
+        const $ = cheerio.load(data);
+        let structuredData = {
+          website: link,
+          store_name:  $("meta[property='og:site_name']").attr('content'),
+          product_name: $("meta[property='og:title']").attr('content'),
+          product_img: $("meta[property='og:image']").attr('content'),
+          product_desc: $("meta[property='og:description']").attr('content'),
+          // product_price: $("meta[property='og:price:amount']").attr('content')
+          product_price: $(".prices .price .sales span").attr('content')
+        }
+        info.push(structuredData)
+      } catch (e) {
+        console.log(e);
+      }
+      // console.log(info)
+      FS.writeFile ("scrape3.json", JSON.stringify(info), function(err) {
+        if (err) throw err;
+        // console.log('complete');
+        }
+      );
+      return info
+    })
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+
+getData2("https://www.theory.com/mens-view-all/")
+
+// getData("https://wearpact.com/men/apparel")
+
+
+// getData("https://lucyandyak.com/en-us/collections/shop-everything")
+// https://lucyandyak.com/en-us/collections/shop-everything
+// FS.writeFile ("scrape.json", JSON.stringify(info), function(err) {
+//   if (err) throw err;
+//   console.log('complete');
+//   }
+// );
 
 app.listen(3000, () => {
   console.log('Example app listening at http://localhost:3000')
