@@ -38,12 +38,12 @@ async function getLink(url) {
     // let html = $('.product-grid .product .pdp-link a') https://www.patagonia.com
 // .search-results .results-grid .product-cell
 
-    let html = $('')
+    let html = $('.product-link')
     // console.log(html)
     let links = []
     html.each((index, value) => {
       // if (!links.includes('https://kuyichi.com/' + $(value).attr("href")))
-      links.push('https://www.everlane.com' + $(value).attr("href"))
+      links.push('https://www.beyondretro.com' + $(value).attr("href"))
     // }
     })
     console.log(links)
@@ -57,7 +57,7 @@ async function getLink(url) {
 // getLink("https://svala.co/collections/shop")
 // getLink("https://lucyandyak.com/en-us/collections/shop-everything")
 // getLink("https://www.everlane.com/collections/mens-bestsellersv2")
-
+// getLink("https://www.beyondretro.com/collections/all")
 
 async function getData(url) {
   try {
@@ -80,7 +80,7 @@ async function getData(url) {
         console.log(e);
       }
       // console.log(info)
-      FS.writeFile ("scrape2.json", JSON.stringify(info), function(err) {
+      FS.writeFile ("scrape4.json", JSON.stringify(info), function(err) {
         if (err) throw err;
         // console.log('complete');
         }
@@ -126,6 +126,7 @@ async function getData2(url) {
   }
 }
 
+getData("https://www.beyondretro.com/collections/all")
 
 // getData2("https://www.theory.com/mens-view-all/")
 
