@@ -1,46 +1,6 @@
 {
   "items": [
     {
-<<<<<<< Updated upstream
-      "_id": "64cac8a93f3b261454c0fbd2",
-      "items": [
-        {
-          "name": "Pineapple",
-          "price": 10.99,
-          "imgpath": "./images/photo-1550258987-190a2d41a8ba.jpg",
-          "desc": "A Pineapple A PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA Pineapple A Pineapple A PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA Pineapple A Pineapple A PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA Pineapple A Pineapple A PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA Pineapple A Pineapple A PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA Pineapple A Pineapple A PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA PineappleA Pineapple",
-          "website": "#"
-        },
-        {
-          "name": "Other fruit",
-          "price": 7.99,
-          "imgpath": "./images/t.jpg",
-          "desc": "Description Description Description Description Description",
-          "website": "#"
-        },
-        {
-          "name": "Watermelon",
-          "price": 15.99,
-          "imgpath": "./images/watermelon.jpg",
-          "desc": "Description Description Description Description Description",
-          "website": "http://www.watermelons.com"
-        },
-        {
-          "name": "less fruit",
-          "price": 20.99,
-          "imgpath": "./images/fruit.jpg",
-          "desc": "Description Description Description Description Description",
-          "website": "#"
-        },
-        {
-          "name": "Fruit3",
-          "price": 21.65,
-          "imgpath": "./images/other fruit.jpg",
-          "desc": "Description Description Description Description Description",
-          "website": "#"
-        }
-      ]
-=======
       "_id": "64d1783029a65271eba0e5b5",
       "website": "https://svala.co/products/tashi-bag-metallic-black-pinatex",
       "store_name": "Svala ",
@@ -1299,7 +1259,6 @@
       "product_img": "http://www.beyondretro.com/cdn/shop/products/beyond-retro-label-unisex-the-north-face-red-black-contrast-fleece-1-E00905633_1200x1200.jpg?v=1691528525",
       "product_desc": "The North Face red &amp; black contrasting classic fleece. Sleeve Length: 24 inchBust: 48 inchLength: 27 inch",
       "product_price": "65.00"
->>>>>>> Stashed changes
     }
   ]
 }
