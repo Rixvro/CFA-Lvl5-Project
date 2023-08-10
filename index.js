@@ -95,4 +95,14 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // ... other code ...
+  let input = document.querySelector("#search-input")
+  let srcBtn = document.querySelector("#search-button button")
+  srcBtn.addEventListener('click', ()=> {
+    console.log(input.value) // if empty string do nothoing
+    let search = input.value.trim()
+    if(search !== '') {
+      let searchRes = items.filter(item => item.name.includes(search)) // change name to objects key
+      updateItemList(searchRes)
+    }
+  })
 });
