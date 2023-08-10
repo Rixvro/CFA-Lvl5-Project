@@ -1,5 +1,4 @@
 {
-<<<<<<< Updated upstream
   "name": "cfa-lvl5-project",
   "version": "1.0.0",
   "description": "Ethical clothing source project",
@@ -17,11 +16,11 @@
     "url": "https://github.com/Rixvro/CFA-Lvl5-Project/issues"
   },
   "homepage": "https://github.com/Rixvro/CFA-Lvl5-Project#readme",
-=======
->>>>>>> Stashed changes
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "rimraf": "^5.0.1"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }

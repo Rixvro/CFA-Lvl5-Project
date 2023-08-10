@@ -24,11 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
     websiteUrl=new URL(websiteParam); websiteName = websiteUrl.hostname;;
   }else{websiteUrl="#" ;websiteName="null"}
   
-<<<<<<< Updated upstream
-  productWebsiteNameElement.textContent="Website Name: "+websiteName
-=======
   productWebsiteNameElement.textContent="Seller: "+StoreName
->>>>>>> Stashed changes
   productNameElement.textContent=itemName;  
   productImgElement.src = itemImage;
   DescElement.textContent=Desc

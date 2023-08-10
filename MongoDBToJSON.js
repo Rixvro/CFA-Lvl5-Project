@@ -44,10 +44,9 @@ async function fetchItemsFromMongoDB() {
 }
 
 // Fetch items and update items.json
-function Update(){
-  fetchItemsFromMongoDB().catch(error => {
+
+ fetchItemsFromMongoDB().catch(error => {
     console.error("Error:", error);
   });
-  
-}
+
 
