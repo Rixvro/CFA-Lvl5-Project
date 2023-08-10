@@ -12,18 +12,23 @@ document.addEventListener("DOMContentLoaded", function() {
     );
     return urlPattern.test(url);
   }
-  const itemImage = "../Home"+urlParams.get('image').replace(".", "")
+  const itemImage = urlParams.get('image')
   const itemName = urlParams.get('name').replace(".", "")
   const itemPrice="$"+urlParams.get('price')
   const websiteParam = urlParams.get('website');
+  const StoreName = urlParams.get('storename')
   const Desc=urlParams.get('desc')
   let websiteUrl
-  let websiteName
+ 
   if (isValidUrl(websiteParam)){
     websiteUrl=new URL(websiteParam); websiteName = websiteUrl.hostname;;
   }else{websiteUrl="#" ;websiteName="null"}
   
+<<<<<<< Updated upstream
   productWebsiteNameElement.textContent="Website Name: "+websiteName
+=======
+  productWebsiteNameElement.textContent="Seller: "+StoreName
+>>>>>>> Stashed changes
   productNameElement.textContent=itemName;  
   productImgElement.src = itemImage;
   DescElement.textContent=Desc
