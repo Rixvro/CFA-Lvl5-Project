@@ -4,7 +4,7 @@ const PORT = 3000;
 require('dotenv').config()
 const envDb = `${process.env.dbName}`
 const envCollection = `${process.env.dbCollectionName}`
-
+require('./MongoDBToJSON') /// Updates the list from mongo db
 const app = express();
 
 app.use(cors());
@@ -142,4 +142,5 @@ app.route("/account")
   app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
   })
+
 
