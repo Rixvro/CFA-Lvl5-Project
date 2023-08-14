@@ -44,7 +44,7 @@ const client = new MongoClient(uri, {
           } else{
             throw error;
           }
-          
+
         } catch (e) {
           console.dir(e);
           res.status(500).json({message: `${e}`});
@@ -83,7 +83,7 @@ const client = new MongoClient(uri, {
           } else{
             throw new Error('Incorrect login info!');
           }
-          
+
 
         } catch (e) {
           console.dir(e);
@@ -93,6 +93,51 @@ const client = new MongoClient(uri, {
           await client.close();
         }
       });
+
+      app.route("/account/fName")
+  .put(async (req, res) => {
+    const request = req.body
+    try {
+      await client.connect();
+      await client.db(envDb).command({ ping: 1 });
+      console.log(
+        "Pinged your deployment. You successfully connected to MongoDB!"
+      );
+      const collection = client.db(envDb).collection(envCollection);
+      const result = await collection.findOneAndUpdate({
+        email: localStorage.getItem('email')
+      }, {
+        fName: request.fName
+      }, { new: true });
+      console.log(result)
+      res.status(200).json({ message: "Completed!" })
+    } catch (e) {
+      console.dir(e)
+    } finally {
+      await client.close();
+    }
+  })
+app.route("/account")
+  .get(async (req, res) => {
+    try {
+      await client.connect();
+      await client.db(envDb).command({ ping: 1 });
+      console.log(
+        "Pinged your deployment. You successfully connected to MongoDB!"
+      );
+      const collection = client.db(envDb).collection(envCollection);
+      const result = await collection.find({
+        email: localStorage.getItem('email')
+        //  localStorage.getItem('email')
+      }).toArray();
+      res.json(result[0])
+    } catch (e) {
+      console.dir(e)
+    } finally {
+      await client.close();
+    }
+  })
+
 
   app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
