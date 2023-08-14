@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/Rixvro/CFA-Lvl5-Project#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongodb": "^5.7.0",
     "rimraf": "^5.0.1"
   },
-  "devDependencies": {},
   "keywords": []
 }
