@@ -13,7 +13,7 @@ h1 {
 
 .selection {
   width: 250px;
-  height: 180px;
+  /* height: 180px; */
   background-color: #D7C0AE;
   margin: 20px;
 
