@@ -78,7 +78,7 @@ fNameBtn.addEventListener("click", async () => {
 
 lNameBtn.addEventListener("click", async () => {
   lName.innerHTML = `
-      <p>:Last Name: ${lNameInput.value} </p> <br>
+      <p>Last Name: ${lNameInput.value} </p> <br>
                       `
   await fetch(DOMAIN_NAME + "/account/lname", {
     method: "PUT",

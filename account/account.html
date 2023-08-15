@@ -39,7 +39,7 @@
                     <input id="search-input" type="text">
                 </div>
               </div>
-              <button type="button" class="btn navbtn"><a href="./account/account.html"><i class="fa-regular fa-user" href></i></a></button>
+              <button type="button" class="btn navbtn"><a href="./account.html"><i class="fa-regular fa-user" href></i></a></button>
           </div>
         </div>
       </div>
@@ -67,24 +67,32 @@
       </div>
       <!-- display information page -->
       <div class="information">
+        <p>Personal Information: </p>
         <div id="fName">
 
         </div>
-        <label>First Name: <input type="text" name="fNameInput" id="fNameInput"></label>
-        <button id="fNameBtn">Update</button>
         <div id="lName">
 
         </div>
-        <label>Last Name:  <input type="text" name="lNameInput" id="lNameInput"></label>
-        <button id="lNameBtn">Update</button>
         <div id="email">
 
         </div>
         <div id="phone">
 
         </div>
-        <label>Phone: <input type="text" name="phoneInput" id="phoneInput"></label>
-        <button id="phoneBtn">Update</button>
+        <hr size="1" width="95%" color="#3F2305">
+        <div class="inputDiv">
+        <label>Update First Name: <input type="text" name="fNameInput" id="fNameInput"></label>
+        <button id="fNameBtn" class="button-13" role="button">Update</button> <br/>
+      </div>
+      <div class="inputDiv">
+        <label>Update Last Name: <input type="text" name="lNameInput" id="lNameInput"></label>
+        <button id="lNameBtn" class="button-13" role="button">Update</button><br/>
+      </div>
+      <div class="inputDiv">
+        <label>Update Phone Number: <input type="text" name="phoneInput" id="phoneInput"></label>
+        <button id="phoneBtn" class="button-13" role="button">Update</button>
+      </div>
       </div>
     </div>
     <script src="account.js"></script>
