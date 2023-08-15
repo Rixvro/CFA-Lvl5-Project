@@ -57,22 +57,14 @@ a {
     right: 70px;
     width: 0px;
     overflow: hidden;
-    -webkit-transition: all 0.15s linear; /* Safari */
-    transition: all 0.15s linear;
+    -webkit-transition: all 0.25s linear; /* Safari */
+    transition: all 0.25s linear;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
     border: none;
   }
 
   #search-button:hover #search-input{
-    width: 250px !important;
+    width: 300px !important;
     visibility: visible;
   }
-
-  @media (min-width: 1350px) and (max-width: 1600px) {
-    #search-button:hover #search-input {
-      width: clamp(150px, calc(150px + (200 - 150) * ((100vw - 1350px) / (1600 - 1350))), 250px) !important;
-      visibility: visible;
-    }
-  }
-  

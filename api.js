@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const bcrypt = require('bcrypt');
 const PORT = 3000;
 require('dotenv').config()
 const envDb = `${process.env.dbName}`
@@ -39,8 +38,6 @@ const client = new MongoClient(uri, {
           const result = await collection.find({email: req.body.email}).toArray();
 
           if (result.length === 0){
-            const hashedPassword = await bcrypt.hash(req.body.password, 10);
-            formData.password = hashedPassword;
             await collection.insertOne(formData).then(res.status(200).json({message: "Completed!"}));
           } else if (result.length !== 0){
             res.status(412).json({message: "Account already exists!"})
@@ -71,36 +68,21 @@ const client = new MongoClient(uri, {
           "Pinged your deployment. You successfully connected to MongoDB!"
           );
           const collection = client.db(envDb).collection(envCollection);
-
-          const user = await collection.find({
-            email: formData.email
+          const result = await collection.find({
+            email: formData.email,
+            password: formData.password
           }).toArray();
-          if (user.length === 0){
-            return res.status(400).send("Cannot find user");
-          }
-          
-          const match = await bcrypt.compare(req.body.password, user[0].password)
 
-          if (match){
-            res.status(200).send("Successfully found user");
+          console.log(result);
+          console.log(result[0].email);
+          console.log(result[0].password);
+
+
+          if (result[0].email === formData.email || result[0].password === formData.password){
+            res.status(200).json({message: "Success!"});
           } else{
-            throw new Error("Incorrect Login Info")
+            throw new Error('Incorrect login info!');
           }
-          // const result = await collection.find({
-          //   email: formData.email,
-          //   password: formData.password
-          // }).toArray();
-
-          // console.log(result);
-          // console.log(result[0].email);
-          // console.log(result[0].password);
-
-
-          // if (result[0].email === formData.email || result[0].password === formData.password){
-          //   res.status(200).json({message: "Success!"});
-          // } else{
-          //   throw new Error('Incorrect login info!');
-          // }
           
 
         } catch (e) {

@@ -4,8 +4,6 @@ let profile = document.getElementById("profile")
 let saved = document.getElementById("saved")
 let help = document.getElementById("help")
 let display = document.querySelector(".information")
-let create_account = document.querySelector("#create-account");
-let signin = document.querySelector('#signin');
 
 const TEST = {
   name: "Homer Simpson",
@@ -29,12 +27,4 @@ saved.addEventListener("click", ()=> {
 
 help.addEventListener("click", ()=> {
   display.innerHTML = `<p> this is the help click </p>`
-})
-
-create_account.addEventListener("click", () => {
-  window.location.href = "../signup/signup.html";
-})
-
-signin.addEventListener("click", () => {
-  window.location.href = "../signin/signin.html";
 })

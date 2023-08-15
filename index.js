@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const sortByPriceDescButton = document.getElementById('sortByPriceDesc');
   const sortByPriceAscButton = document.getElementById('sortByPriceAsc');
   const sortByNameAscButton = document.getElementById('sortByNameAsc');
+  let CurrentSelection=""
 
   if (sortByPriceDescButton) {
     sortByPriceDescButton.addEventListener('click', function() {
@@ -73,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
       updateItemList(items);
       if (sortByDropdown) {
         sortByDropdown.textContent = this.textContent; // Update the "Sort By" button text
+        CurrentSelection=this.textContent
       }
     });
   }
@@ -83,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
       updateItemList(items);
       if (sortByDropdown) {
         sortByDropdown.textContent = this.textContent; // Update the "Sort By" button text
+        CurrentSelection=this.textContent
       }
     });
   }
@@ -94,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
       updateItemList(items);
       if (sortByDropdown) {
         sortByDropdown.textContent = this.textContent; // Update the "Sort By" button text
+        CurrentSelection=this.textContent
       }
     });
   }
@@ -103,8 +107,24 @@ document.addEventListener("DOMContentLoaded", function() {
 // Search Functionality
 const searchInput = document.getElementById('search-input');
 const searchContainer = document.getElementById('expanded-search'); // Moved the search container outside of the event listener
+function UpdateSort(){
+  if (CurrentSelection==sortByPriceAscButton.textContent){
+    sortByPriceAscButton.click()
+  }
+}
 
-searchInput.addEventListener('input', function() {
+
+function updateSortByDropdown(selection) {
+  if (sortByDropdown) {
+    sortByDropdown.textContent = selection;
+    CurrentSelection = selection;
+  }
+}
+
+// Search Functionality
+// ...
+
+searchInput.addEventListener('input', function () {
   const searchTerm = searchInput.value.trim().toLowerCase();
 
   if (searchTerm === '') {
@@ -114,6 +134,9 @@ searchInput.addEventListener('input', function() {
       item.product_name.toLowerCase().includes(searchTerm)
     );
     updateItemList(filteredItems);
+
+    // Update the "Sort By" dropdown based on the current sorting criteria
+    updateSortByDropdown(CurrentSelection);
   }
 });
 
@@ -121,6 +144,9 @@ searchInput.addEventListener('input', function() {
 const searchButton = document.querySelector('.fa-magnifying-glass');
 
 searchButton.addEventListener('click', function() {
+  UpdateSort()
+  
+  
   searchContainer.classList.toggle('active');
 });
 
