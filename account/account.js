@@ -1,10 +1,10 @@
 const DOMAIN_NAME = "http://localhost:3000";
 
-const TEST = {
-  name: "Homer Simpson",
-  email: "homer@simpson.com",
-  phone: "(203)240-4567"
-}
+// const TEST = {
+//   name: "Homer Simpson",
+//   email: "homer@simpson.com",
+//   phone: "(203)240-4567"
+// }
 
 let email = document.querySelector("#email")
 let fName = document.querySelector("#fName")
@@ -20,19 +20,32 @@ let lNameBtn = document.querySelector("#lNameBtn")
 let phoneBtn = document.querySelector("#phoneBtn")
 
 window.addEventListener("load", async() => {
-  let information = await fetch(DOMAIN_NAME + "/account")
+  let information = await fetch(DOMAIN_NAME + "/account?email=" + localStorage.getItem('email'))
+  let firstName = ""
+  let lastName = ""
+  let phoneNum = ""
+
+  if(information.fName) {
+    firstName = information.fName
+  }
+  if(information.lName) {
+    lastName = information.lName
+  }
+  if(information.phone) {
+    phoneNum = information.phone
+  }
 
   fName.innerHTML = `
-      <p>First Name: ${information.fName} </p> <br>
+      <p>First Name: ${firstName} </p> <br>
                       `
   lName.innerHTML = `
-      <p>Last Name: ${information.lName} </p> <br>
+      <p>Last Name: ${lastName} </p> <br>
       `
   email.innerHTML = `
       <p>Email: ${information.email} </p> <br>
       `
   phone.innerHTML = `
-      <p>Phone Number: ${information.phone} </p> <br>
+      <p>Phone Number: ${phoneNum} </p> <br>
           `
 })
 
@@ -47,16 +60,44 @@ fNameBtn.addEventListener("click", async () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      email: localStorage.getItem('email'),
       fName: fNameInput.value
     })
   })
 })
 
 
-lNameBtn.addEventListener("click", () => {
+lNameBtn.addEventListener("click", async () => {
+  lName.innerHTML = `
+      <p>:Last Name: ${lNameInput.value} </p> <br>
+                      `
+  await fetch(DOMAIN_NAME + "/account/lname", {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: localStorage.getItem('email'),
+      lName: lNameInput.value
+    })
+  })
 
 })
 
-phone.addEventListener("click", () => {
-
+phoneBtn.addEventListener("click", async () => {
+  phone.innerHTML = `
+  <p>Phone Number: ${phoneInput.value} </p> <br>
+                  `
+await fetch(DOMAIN_NAME + "/account/phone", {
+method: "PUT",
+headers: {
+  Accept: "application/json",
+  "Content-Type": "application/json",
+},
+body: JSON.stringify({
+  email: localStorage.getItem('email'),
+  phone: phoneInput.value
+})
+})
 })

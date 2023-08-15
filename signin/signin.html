@@ -58,7 +58,7 @@
       const errorMessage = document.querySelector('#errorMessage');
       const p = document.createElement('p');
       let formData;
-      
+
       document.addEventListener("DOMContentLoaded", function () {
 
         form.addEventListener("submit", async (event) => {
@@ -84,7 +84,7 @@
                 }
                 p.textContent = '';
                 window.location.href = "../Home/home.html";
-                res.json();
+                localStorage("email", res.text());
             })
             .then((data) => {
                 console.log("Logged in: " + data);
