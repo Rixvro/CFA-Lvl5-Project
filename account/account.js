@@ -24,6 +24,8 @@ window.addEventListener("load", async() => {
   let firstName = ""
   let lastName = ""
   let phoneNum = ""
+let create_account = document.querySelector("#create-account");
+let signin = document.querySelector('#signin');
 
   if(information.fName) {
     firstName = information.fName
@@ -100,4 +102,20 @@ body: JSON.stringify({
   phone: phoneInput.value
 })
 })
+})
+
+create_account.addEventListener("click", () => {
+  window.location.href = "../signup/signup.html";
+})
+
+signin.addEventListener("click", () => {
+  window.location.href = "../signin/signin.html";
+})
+
+create_account.addEventListener("click", () => {
+  window.location.href = "../signup/signup.html";
+})
+
+signin.addEventListener("click", () => {
+  window.location.href = "../signin/signin.html";
 })
