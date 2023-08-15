@@ -41,3 +41,24 @@
     background-color: #000000;
    
   }
+.container{
+  margin-left: 520px;
+  
+  
+}
+.title{
+  background-color: #967E76;
+  margin-bottom: 100px;
+  text-align: center;
+}
+.container  .row{
+  height: 500px;
+  
+}
+
+.container  .row  .col-lg-8{
+  background-color:#EEE3CB;
+}
+.container  .row  .col-lg-8   div   button{
+  background-color:#967E76
+}
