@@ -84,7 +84,7 @@
                 }
                 p.textContent = '';
                 window.location.href = "../Home/home.html";
-                localStorage("email", await res.text());
+                localStorage.setItem("email", await res.text());
             })
             .then((data) => {
                 console.log("Logged in: " + data);
