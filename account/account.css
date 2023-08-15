@@ -238,12 +238,7 @@ effect 2
   transition-delay: 0;
 }
 
-=====
-LEVEL 4. SETTINGS
-=====
-*/
-
 .field{
-  --fieldBorderColor: #D1C4E9;
-  --fieldBorderColorActive: #673AB7;
+  --fieldBorderColor: #D7C0AE;
+  --fieldBorderColorActive: #3F2305;
 }
