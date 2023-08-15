@@ -33,6 +33,7 @@
   .image-list-scroll {
     max-height: 400px; /* Adjust the max height as needed */
     overflow-y: auto;
+    overflow-x: hidden;
   }
   
   .image-box {
@@ -41,10 +42,14 @@
     background-color: #000000;
    
   }
-.container{
-  margin-left: 520px;
+.current-sale div{
+  align-items: center; 
+  justify-content: center;
   
   
+}
+.current-sale > .row > div{
+  background-color: #D7C0AE;
 }
 .title{
   background-color: #967E76;

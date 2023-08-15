@@ -32,6 +32,7 @@
   /* List of Images */
   .image-list-scroll {
     max-height: 400px; /* Adjust the max height as needed */
+    width: 500px;
     overflow-y: auto;
   }
   
@@ -46,6 +47,7 @@
     margin-top: 150px;
     height: 200px;
   }
+
 h2{
   text-align: center;
 }
