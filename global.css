@@ -69,6 +69,7 @@ a {
     visibility: visible;
   }
 
+  
   @media (min-width: 1350px) and (max-width: 1600px) {
     #search-button:hover #search-input {
       width: clamp(150px, calc(150px + (200 - 150) * ((100vw - 1350px) / (1600 - 1350))), 250px) !important;
