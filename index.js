@@ -7,7 +7,7 @@ function getImageNameFromUrl(imageUrl) {
 
 document.addEventListener("DOMContentLoaded", function() {
   const itemsURL = '../items.json';
-  
+
   const imageList = document.querySelector('.imageList');
   let items = [];
 
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }
-  
+
   if (sortByPriceAscButton) {
     sortByPriceAscButton.addEventListener('click', function() {
       items.sort((a, b) => a.product_price - b.product_price); // Corrected property name
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }
-  
+
 
   if (sortByNameAscButton) {
     sortByNameAscButton.addEventListener('click', function() {

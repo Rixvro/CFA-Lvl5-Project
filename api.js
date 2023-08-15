@@ -47,7 +47,7 @@ const client = new MongoClient(uri, {
           } else{
             throw error;
           }
-          
+
         } catch (e) {
           console.dir(e);
           res.status(500).json({message: `${e}`});
@@ -78,11 +78,12 @@ const client = new MongoClient(uri, {
           if (user.length === 0){
             return res.status(400).send("Cannot find user");
           }
-          
+
           const match = await bcrypt.compare(req.body.password, user[0].password)
 
+
           if (match){
-            res.status(200).send("Successfully found user");
+            res.status(200).send(formData.email);
           } else{
             throw new Error("Incorrect Login Info")
           }
@@ -96,6 +97,96 @@ const client = new MongoClient(uri, {
           await client.close();
         }
       });
+
+      app.route("/account/fName")
+  .put(async (req, res) => {
+    const request = req.body
+    console.log(req.body.email)
+    try {
+      await client.connect();
+      await client.db(envDb).command({ ping: 1 });
+      console.log(
+        "Pinged your deployment. You successfully connected to MongoDB!"
+      );
+      const collection = client.db(envDb).collection(envCollection);
+      const result = await collection.findOneAndUpdate({
+        email: req.body.email
+      }, {$set: {
+        fName:req.body.fName}
+      }, { new: true,upsert: true });
+      res.status(200).json({ message: "Completed!" })
+    } catch (e) {
+      console.dir(e)
+    } finally {
+      await client.close();
+    }
+  })
+  app.route("/account/lName")
+  .put(async (req, res) => {
+    const request = req.body
+    console.log(req.body.email)
+    try {
+      await client.connect();
+      await client.db(envDb).command({ ping: 1 });
+      console.log(
+        "Pinged your deployment. You successfully connected to MongoDB!"
+      );
+      const collection = client.db(envDb).collection(envCollection);
+      const result = await collection.findOneAndUpdate({
+        email: req.body.email
+      }, {$set: {
+        lName:req.body.lName}
+      }, { new: true,upsert: true });
+      res.status(200).json({ message: "Completed!" })
+    } catch (e) {
+      console.dir(e)
+    } finally {
+      await client.close();
+    }
+  })
+  app.route("/account/phone")
+  .put(async (req, res) => {
+    const request = req.body
+    console.log(req.body.email)
+    try {
+      await client.connect();
+      await client.db(envDb).command({ ping: 1 });
+      console.log(
+        "Pinged your deployment. You successfully connected to MongoDB!"
+      );
+      const collection = client.db(envDb).collection(envCollection);
+      const result = await collection.findOneAndUpdate({
+        email: req.body.email
+      }, {$set: {
+        phone:req.body.phone}
+      }, { new: true,upsert: true });
+      res.status(200).json({ message: "Completed!" })
+    } catch (e) {
+      console.dir(e)
+    } finally {
+      await client.close();
+    }
+  })
+app.route("/account")
+  .get(async (req, res) => {
+    try {
+      await client.connect();
+      await client.db(envDb).command({ ping: 1 });
+      console.log(
+        "Pinged your deployment. You successfully connected to MongoDB!"
+      );
+      const collection = client.db(envDb).collection(envCollection);
+      const result = await collection.find({
+        email: req.query.email
+      }).toArray();
+      res.json(result[0])
+    } catch (e) {
+      console.dir(e)
+    } finally {
+      await client.close();
+    }
+  })
+
 
   app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)

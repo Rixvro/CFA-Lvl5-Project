@@ -61,10 +61,8 @@
         <!-- account selection -->
         <ul>
           <li id="profile">Profile</li>
-          <li id="saved">Saved</li>
-          <li id="help">Contact Us</li>
-          <li id="create-account">Create account</li>
-          <li id="signin">Sign into account</li>
+          <!-- <li id="create-account">Create account</li>
+          <li id="signin">Sign into account</li> -->
           <!-- Account/Security
             Cart/Orders/Lists
             Customer service -->
@@ -73,9 +71,32 @@
       </div>
       <!-- display information page -->
       <div class="information">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <p>Personal Information: </p>
+        <div id="fName">
+
+        </div>
+        <div id="lName">
+
+        </div>
+        <div id="email">
+
+        </div>
+        <div id="phone">
+
+        </div>
+        <hr size="1" width="95%" color="#3F2305">
+        <div class="inputDiv">
+        <label>Update First Name: <input type="text" name="fNameInput" id="fNameInput"></label>
+        <button id="fNameBtn" class="button-13" role="button">Update</button> <br/>
+      </div>
+      <div class="inputDiv">
+        <label>Update Last Name: <input type="text" name="lNameInput" id="lNameInput"></label>
+        <button id="lNameBtn" class="button-13" role="button">Update</button><br/>
+      </div>
+      <div class="inputDiv">
+        <label>Update Phone Number: <input type="text" name="phoneInput" id="phoneInput"></label>
+        <button id="phoneBtn" class="button-13" role="button">Update</button>
+      </div>
       </div>
     </div>
     <script src="account.js"></script>
