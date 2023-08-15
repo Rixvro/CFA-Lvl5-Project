@@ -76,7 +76,7 @@
               },
               body: JSON.stringify(Object.fromEntries(formData)),
             })
-              .then((res) => {
+              .then(async (res) => {
                 if (!res.ok) {
                     errorMessage.appendChild(p);
                     p.textContent = "Incorrect Login Information!";
@@ -84,8 +84,7 @@
                 }
                 p.textContent = '';
                 window.location.href = "../Home/home.html";
-                let email = res.json()
-                localStorage("email", email.email);
+                localStorage("email", await res.text());
             })
             .then((data) => {
                 console.log("Logged in: " + data);

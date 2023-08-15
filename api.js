@@ -83,9 +83,7 @@ const client = new MongoClient(uri, {
 
 
           if (match){
-            res.status(200).send("Successfully found user").json({
-              email: formData.email
-            });
+            res.status(200).send(formData.email);
           } else{
             throw new Error("Incorrect Login Info")
           }
