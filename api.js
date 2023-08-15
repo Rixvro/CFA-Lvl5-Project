@@ -71,7 +71,7 @@ const client = new MongoClient(uri, {
           "Pinged your deployment. You successfully connected to MongoDB!"
           );
           const collection = client.db(envDb).collection(envCollection);
-
+          
           const user = await collection.find({
             email: formData.email
           }).toArray();
@@ -87,22 +87,7 @@ const client = new MongoClient(uri, {
           } else{
             throw new Error("Incorrect Login Info")
           }
-          // const result = await collection.find({
-          //   email: formData.email,
-          //   password: formData.password
-          // }).toArray();
-
-          // console.log(result);
-          // console.log(result[0].email);
-          // console.log(result[0].password);
-
-
-          // if (result[0].email === formData.email || result[0].password === formData.password){
-          //   res.status(200).json({message: "Success!"});
-          // } else{
-          //   throw new Error('Incorrect login info!');
-          // }
-
+          
 
         } catch (e) {
           console.dir(e);
