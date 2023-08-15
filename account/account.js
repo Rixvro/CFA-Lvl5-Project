@@ -26,10 +26,13 @@ window.addEventListener("load", async() => {
   if(localStorage.getItem('email') === null) {
     window.location.href = "../signin/signin.html";
   }
-  let information = await fetch(DOMAIN_NAME + "/account?email=" + localStorage.getItem('email'))
+  let information = await (await fetch(DOMAIN_NAME + "/account?email=" + localStorage.getItem('email'))).json();
   let firstName = ""
   let lastName = ""
   let phoneNum = ""
+
+  console.log(information);
+  console.log(information.fName)
 
   if(information.fName) {
     firstName = information.fName
