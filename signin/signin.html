@@ -84,7 +84,8 @@
                 }
                 p.textContent = '';
                 window.location.href = "../Home/home.html";
-                localStorage("email", res.text());
+                let email = res.json()
+                localStorage("email", email.email);
             })
             .then((data) => {
                 console.log("Logged in: " + data);

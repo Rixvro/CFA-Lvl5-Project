@@ -82,8 +82,10 @@ const client = new MongoClient(uri, {
           const match = await bcrypt.compare(req.body.password, user[0].password)
 
 
-          if (result[0].email === formData.email || result[0].password === formData.password){
-            res.status(200).send(result[0].email);
+          if (match){
+            res.status(200).send("Successfully found user").json({
+              email: formData.email
+            });
           } else{
             throw new Error("Incorrect Login Info")
           }
